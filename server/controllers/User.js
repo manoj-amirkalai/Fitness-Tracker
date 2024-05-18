@@ -10,7 +10,6 @@ dotenv.config();
 export const UserRegister = async (req, res, next) => {
   try {
     const { email, password, name, img } = req.body;
-    console.log(email, password, name, img);
     // Check if the email is in use
     const existingUser = await User.findOne({ email }).exec();
     if (existingUser) {
