@@ -285,7 +285,6 @@ export const addWorkout = async (req, res, next) => {
 // Function to parse workout details from a line
 const parseWorkoutLine = (parts) => {
   const details = {};
-  console.log(parts);
   if (parts.length >= 5) {
     details.workoutName = parts[1].substring(1).trim();
     details.sets = parseInt(parts[2].split("sets")[0].substring(1).trim());
