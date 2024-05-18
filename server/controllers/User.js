@@ -240,7 +240,6 @@ export const addWorkout = async (req, res, next) => {
       count++;
       if (line.startsWith("#")) {
         const parts = line?.split("\n").map((part) => part.trim());
-        console.log(parts);
         if (parts.length < 5) {
           return next(
             createError(400, `Workout string is missing for ${count}th workout`)
