@@ -7,6 +7,9 @@ import { DateCalendar } from "@mui/x-date-pickers";
 import { getWorkouts } from "../api";
 import { CircularProgress } from "@mui/material";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { getDashboardDetails } from "../api/index";
 
 const Container = styled.div`
   flex: 1;
@@ -86,7 +89,28 @@ const Workouts = () => {
       setLoading(false);
     });
   };
-
+  const dashboardData = async () => {
+    const token = localStorage.getItem("fittrack-app-token");
+    await getDashboardDetails(token)
+  };
+  const removeWorkouts = async (workout) => {
+    const id = workout._id;
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/user/removeworkout",
+        { id: id }
+      );
+      if (response.data.success) {
+        getTodaysWorkout();
+        dashboardData();
+        toast.info("workout removed", {
+          autoClose: 750,
+        });
+      }
+    } catch (err) {
+      toast.error(err);
+    }
+  };
   useEffect(() => {
     getTodaysWorkout();
   }, [date]);
@@ -108,9 +132,16 @@ const Workouts = () => {
               <CircularProgress />
             ) : (
               <CardWrapper>
-                {!(todaysWorkouts.length >0)?<h3>No Records Found</h3>:todaysWorkouts.map((workout) => (
-                  <WorkoutCard workout={workout} />
-                ))}
+                {!(todaysWorkouts.length > 0) ? (
+                  <h3>No Records Found</h3>
+                ) : (
+                  todaysWorkouts.map((workout) => (
+                    <WorkoutCard
+                      workout={workout}
+                      removeWorkouts={removeWorkouts}
+                    />
+                  ))
+                )}
               </CardWrapper>
             )}
           </Section>

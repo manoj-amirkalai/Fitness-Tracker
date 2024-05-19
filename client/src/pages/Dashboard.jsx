@@ -6,8 +6,9 @@ import WeeklyStatCard from "../components/cards/WeeklyStatCard";
 import CategoryChart from "../components/cards/CategoryChart";
 import AddWorkout from "../components/AddWorkout";
 import WorkoutCard from "../components/cards/WorkoutCard";
-import { addWorkout, getDashboardDetails, getWorkouts } from "../api";
+import { addWorkout, getDashboardDetails, getWorkouts } from "../api/index";
 import { toast } from "react-toastify";
+import axios from "axios";
 const Container = styled.div`
   flex: 1;
   height: 100%;
@@ -105,6 +106,26 @@ const Dashboard = () => {
         toast.error(err);
       });
   };
+  const removeWorkouts = async (workout) => {
+    const id = workout._id;
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/user/removeworkout",
+        {id:id}
+      );
+      if (response.data.success) {
+        
+    getTodaysWorkout();
+    
+    dashboardData();
+        toast.info("workout removed", {
+          autoClose: 750 
+        });
+      }
+    } catch (err) {
+      toast.error(err);
+    }
+  };
 
   useEffect(() => {
     dashboardData();
@@ -135,7 +156,7 @@ const Dashboard = () => {
           <Title>Todays Workouts</Title>
           <CardWrapper>
             {todaysWorkouts.map((workout) => (
-              <WorkoutCard workout={workout} />
+              <WorkoutCard workout={workout} removeWorkouts={removeWorkouts}  />
             ))}
           </CardWrapper>
         </Section>

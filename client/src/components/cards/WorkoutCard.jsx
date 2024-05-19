@@ -50,11 +50,25 @@ const Details = styled.div`
   align-items: center;
   gap: 6px;
 `;
-
-const WorkoutCard = ({ workout }) => {
+const remove = {
+  color: "red",
+  backgroundColor: "rgba(216, 50, 31, 0.358)",
+  borderRadius: "30%",
+  padding: " 0 2px",
+  margin: "0 4% 4% 0",
+  cursor: "pointer",
+};
+const bend = { display: "flex", justifyContent: "space-between" };
+const WorkoutCard = ({ workout,removeWorkouts }) => {
+  
   return (
     <Card>
-      <Category>#{workout?.category}</Category>
+      <div style={bend}>
+        <Category>#{workout?.category}</Category>
+        <div onClick={() => removeWorkouts(workout)} style={remove}>
+          &#x2716;
+        </div>
+      </div>
       <Name>{workout?.workoutName}</Name>
       <Sets>
         Count: {workout?.sets} sets X {workout?.reps} reps

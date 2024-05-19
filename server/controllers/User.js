@@ -60,6 +60,16 @@ export const UserLogin = async (req, res, next) => {
   }
 };
 
+export const removeworkout = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const user = await Workout.findOneAndDelete({ _id: id });
+    res.json({ success: true, message: "Workout Removed" });
+  } catch (error) {
+    res.json({ success: false, message: "Workout not Removed" });
+  }
+};
+
 export const getUserDashboard = async (req, res, next) => {
   try {
     const userId = req.user?.id;
