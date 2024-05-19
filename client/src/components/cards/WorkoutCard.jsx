@@ -49,26 +49,26 @@ const Details = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
-`;
-const remove = {
-  color: "red",
-  backgroundColor: "rgba(216, 50, 31, 0.358)",
-  borderRadius: "30%",
-  padding: " 0 2px",
-  margin: "0 4% 4% 0",
-  cursor: "pointer",
-};
-const bend = { display: "flex", justifyContent: "space-between" };
+// `;
+// const remove = {
+//   color: "red",
+//   backgroundColor: "rgba(216, 50, 31, 0.358)",
+//   borderRadius: "30%",
+//   padding: " 0 2px",
+//   margin: "0 4% 4% 0",
+//   cursor: "pointer",
+// };
+// const bend = { display: "flex", justifyContent: "space-between" };
 const WorkoutCard = ({ workout,removeWorkouts }) => {
   
   return (
     <Card>
-      <div style={bend}>
+      {/* <div style={bend}> */}
         <Category>#{workout?.category}</Category>
-        <div onClick={() => removeWorkouts(workout)} style={remove}>
+        {/* <div onClick={() => removeWorkouts(workout)} style={remove}>
           &#x2716;
         </div>
-      </div>
+      </div> */}
       <Name>{workout?.workoutName}</Name>
       <Sets>
         Count: {workout?.sets} sets X {workout?.reps} reps

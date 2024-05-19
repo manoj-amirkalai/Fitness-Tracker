@@ -25,7 +25,7 @@ app.use((err, req, res, next) => {
 
 app.get("/", async (req, res) => {
   res.status(200).json({
-    message: "Welcome to Backend server",
+    message: "Hello developers from GFGr",
   });
 });
 
