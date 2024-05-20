@@ -26,11 +26,11 @@ const Category = styled.div`
   padding: 4px 10px;
   border-radius: 8px;
 `;
-// const Name = styled.div`
-//   font-size: 20px;
-//   color: ${({ theme }) => theme.text_primary};
-//   font-weight: 600;
-// `;
+const Name = styled.div`
+  font-size: 20px;
+  color: ${({ theme }) => theme.text_primary};
+  font-weight: 600;
+`;
 // const Sets = styled.div`
 //   font-size: 15px;
 //   color: ${({ theme }) => theme.text_secondary};
