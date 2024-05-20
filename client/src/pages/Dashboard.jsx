@@ -110,7 +110,7 @@ const Dashboard = () => {
     const id = workout._id;
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/user/removeworkout",
+        "https://manoj-fitness-tracker-backend.onrender.com/api/user/removeworkout",
         {id:id}
       );
       if (response.data.success) {
