@@ -38,10 +38,10 @@ const Sets = styled.div`
   display: flex;
   gap: 6px;
 `;
-// const Flex = styled.div`
-//   display: flex;
-//   gap: 16px;
-// `;
+const Flex = styled.div`
+  display: flex;
+  gap: 16px;
+`;
 // const Details = styled.div`
 //   font-size: 15px;
 //   color: ${({ theme }) => theme.text_primary};
