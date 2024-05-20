@@ -17,15 +17,15 @@ const Card = styled.div`
     padding: 12px 14px;
   }
 `;
-// const Category = styled.div`
-//   width: fit-content;
-//   font-size: 14px;
-//   color: ${({ theme }) => theme.primary};
-//   font-weight: 500;
-//   background: ${({ theme }) => theme.primary + 20};
-//   padding: 4px 10px;
-//   border-radius: 8px;
-// `;
+const Category = styled.div`
+  width: fit-content;
+  font-size: 14px;
+  color: ${({ theme }) => theme.primary};
+  font-weight: 500;
+  background: ${({ theme }) => theme.primary + 20};
+  padding: 4px 10px;
+  border-radius: 8px;
+`;
 // const Name = styled.div`
 //   font-size: 20px;
 //   color: ${({ theme }) => theme.text_primary};
