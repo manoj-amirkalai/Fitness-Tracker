@@ -31,13 +31,13 @@ const Name = styled.div`
   color: ${({ theme }) => theme.text_primary};
   font-weight: 600;
 `;
-// const Sets = styled.div`
-//   font-size: 15px;
-//   color: ${({ theme }) => theme.text_secondary};
-//   font-weight: 500;
-//   display: flex;
-//   gap: 6px;
-// `;
+const Sets = styled.div`
+  font-size: 15px;
+  color: ${({ theme }) => theme.text_secondary};
+  font-weight: 500;
+  display: flex;
+  gap: 6px;
+`;
 // const Flex = styled.div`
 //   display: flex;
 //   gap: 16px;
